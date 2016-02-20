@@ -21,10 +21,13 @@ plt.show()
 image_gray = color.rgb2hsv(image)[:, :, 1]  # HUE
 image_gray = image_gray[100:200, 100:200]
 
-filter_blurred_f = filter.gaussian_filter(image_gray, 1)
-alpha = 0.1
-sharpened = image_gray + alpha * (image_gray - filter_blurred_f)
-image_gray = sharpened
+# filter_blurred_f = filter.gaussian_filter(image_gray, 1)
+# alpha = 0.1
+# sharpened = image_gray + alpha * (image_gray - filter_blurred_f)
+# image_gray = sharpened
+
+edge_sobel = filter.sobel(image_gray)
+image_gray = edge_sobel
 # psf = np.ones((5, 5)) / 25
 # image_gray, _ = restoration.unsupervised_wiener(image_gray, psf)
 

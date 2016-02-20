@@ -47,7 +47,7 @@ from skimage.exposure import rescale_intensity
 import matplotlib.pyplot as plt
 
 image_dir = '../images/'
-image_file = 'wheat.jpg'
+image_file = 'wheat-real-15p.jpg'
 file = os.path.join(image_dir, image_file)
 image = io.imread(file)
 

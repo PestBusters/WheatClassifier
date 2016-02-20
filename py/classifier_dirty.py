@@ -6,6 +6,7 @@ from scipy import misc
 from skimage import color
 from skimage import filter
 from skimage import io
+from sklearn.externals import joblib
 from sklearn import cross_validation
 from sklearn import grid_search
 from sklearn.ensemble import RandomForestClassifier
@@ -124,3 +125,5 @@ print("Accuracy test : %0.4f (+/- %0.4f)" % (scores.mean(), scores.std() * 2))
 
 te = datetime.now()
 print('elapsed time: {0}'.format(te - ts))
+
+joblib.dump(clf.best_estimator_, '../data/classifier_dirty.clf')

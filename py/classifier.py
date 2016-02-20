@@ -4,6 +4,7 @@ import numpy as np
 from numpy import random
 from scipy import misc
 from skimage import color
+from skimage import filter
 from skimage import io
 from sklearn import cross_validation
 from sklearn import grid_search
@@ -15,12 +16,16 @@ target = []
 
 
 def features_extractor(trimmed):
+    # edge_roberts = filter.roberts(trimmed)
+    # edge_sobel = filter.sobel(trimmed)
     return [
         np.median(trimmed),
         np.sum(trimmed),
         np.average(trimmed),
         np.max(trimmed),
         np.min(trimmed)
+        # np.sum([x for x in edge_roberts.flatten() if x > 100]) / np.sum([x for x in edge_roberts.flatten() if x <= 100]),
+        # np.sum([x for x in edge_sobel.flatten() if x > 100]) / np.sum([x for x in edge_sobel.flatten() if x <= 100])
     ]
 
 

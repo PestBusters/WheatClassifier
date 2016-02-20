@@ -1,19 +1,14 @@
-from matplotlib import cm
-from scipy import misc
-import numpy as np
-import matplotlib.pyplot as plt
-from skimage import color
-from skimage import data
-from skimage import feature
-from skimage import io
-from skimage import data
-from skimage import feature
 from math import sqrt
-from skimage.color import rgb2gray
+
+import matplotlib.pyplot as plt
+from scipy import misc
+from skimage import color
+from skimage import feature
 
 image = misc.imread('../images/wheat3.jpg')
 
 image_gray = color.rgb2gray(image)
+# image_gray = color.rgb2hsv(image)[:, :, 1]  # HUE
 plt.imshow(image_gray, cmap='gray')
 plt.show()
 
